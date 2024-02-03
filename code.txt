@@ -1,0 +1,104 @@
+//Java code 
+
+class Solution
+    public int maxProfit(int[] prices) {
+        int soFarMin = prices[0];
+        int maxProfit = 0;
+
+        for(int i=1; i<prices.length; i++){
+            if(prices[i] < soFarMin){
+                soFarMin = prices[i];
+            }
+
+            else{
+                int profit = prices[i] - soFarMin;
+                maxProfit = Math.max( profit, maxProfit);
+            }
+        }
+
+        return maxProfit;
+    }
+}
+-----------------------------------------------------------------------------------------------------
+
+// C++ Code 
+#include <vector>
+#include <algorithm>
+
+class Solution {
+public:
+    int maxProfit(std::vector<int>& prices) {
+        if (prices.empty()) {
+            return 0; // Return 0 if the prices array is empty
+        }
+
+        int soFarMin = prices[0];
+        int maxProfit = 0;
+
+        for (int i = 1; i < prices.size(); ++i) {
+            if (prices[i] < soFarMin) {
+                soFarMin = prices[i];
+            } else {
+                int profit = prices[i] - soFarMin
+
+
+-------------------------------------------------------------------------------------------
+
+
+//Python Code 
+
+class Solution:
+    def maxProfit(self, prices):
+        if not prices:
+            return 0  # Return 0 if prices list is empty
+
+        so_far_min = prices[0]
+        max_profit = 0
+
+        for price in prices[1:]:
+            if price < so_far_min:
+                so_far_min = price
+            else:
+                profit = price - so_far_min
+                max_profit = max(profit, max_profit)
+
+        return max_profit
+---------------------------------------------------------
+
+
+// c program
+
+
+#include <stdio.h>
+
+int maxProfit(int prices[], int n) {
+    if (n == 0) {
+        return 0;  // Return 0 if prices array is empty
+    }
+
+    int soFarMin = prices[0];
+    int maxProfit = 0;
+
+    for (int i = 1; i < n; ++i) {
+        if (prices[i] < soFarMin) {
+            soFarMin = prices[i];
+        } else {
+            int profit = prices[i] - soFarMin;
+            maxProfit = (profit > maxProfit) ? profit : maxProfit;
+        }
+    }
+
+    return maxProfit;
+}
+
+int main() {
+    int prices[] = {7, 1, 5, 3, 6, 4};
+    int n = sizeof(prices) / sizeof(prices[0]);
+    
+    int result = maxProfit(prices, n);
+    printf("Maximum Profit: %d\n", result);
+
+    return 0;
+}
+
+
